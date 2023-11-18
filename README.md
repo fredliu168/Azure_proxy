@@ -1,7 +1,7 @@
 
 # Azure OpenAi 接口代理开发
 
-Azure_proxy项目是一个代理，用于将ChatGPT请求转发到Azure OpenAi。
+[Azure_proxy](https://github.com/fredliu168/Azure_proxy)项目是一个代理，用于将ChatGPT请求转发到Azure OpenAi。
 
 如果直接使用[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web),直接配置azure相关信息到ChatGPT-Next-Web就可以使用了。
 
