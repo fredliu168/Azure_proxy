@@ -22,7 +22,7 @@ pip install -r requirements.txt # 安装依赖
 
 ## 二、接口部署发布
 
-###（1）使用python环境运行
+### （1）使用python环境运行
 
 gunicorn 是一个用于运行 WSGI（Web Server Gateway Interface）应用程序的HTTP服务器。WSGI是Python Web应用程序和Web服务器之间的标准接口，允许你使用不同的Web服务器来运行你的Python Web应用程序。
 
