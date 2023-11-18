@@ -1,0 +1,11 @@
+*.pyc
+*~
+__pycache__/
+.vscode
+.git
+azure_openai_proxy.tar
+.vscode-upload.json
+*.log
+log/
+docker-compose.yml
+Dockerfile

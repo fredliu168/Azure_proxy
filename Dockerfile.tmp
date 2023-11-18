@@ -1,0 +1,33 @@
+FROM python:3.10.13-slim
+
+# 把环境变量换成你自己的
+ENV AZURE_OPENAI_API_KEY="xxxxxxxxxxxxxxxxxxx" \
+    AZURE_ENDPOINT="https://xxxxxxxxxxx.openai.azure.com" \
+    AZURE_OPENAI_API_VERSION="2023-07-01-preview" \
+    AUTH_KEY="xxxxxxxxxxxxxxxxxxx" 
+
+WORKDIR /var/azure_openai/workspace
+# 添加文件
+ADD src /var/azure_openai/workspace/src
+ADD azure_openai.py /var/azure_openai/workspace/
+ADD Dockerfile /var/azure_openai/workspace/
+ADD requirements.txt /var/azure_openai/workspace/
+
+# 时区设置
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+&& echo 'Asia/Shanghai' >/etc/timezone
+
+# 安装pip及flask依赖
+RUN pip install -r requirements.txt
+
+# 安装gunicorn
+RUN pip install gunicorn
+# 建日志目录
+RUN mkdir -p /var/azure_openai/workspace/log/
+# 声明数据卷挂载点
+VOLUME /var/azure_openai/workspace
+# 启动命令
+#ENTRYPOINT ["/var/azure_openai/workspace/run.sh"]
+ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8000","--workers", "4", "azure_openai:app"]
+# 容器暴露端口
+EXPOSE 8000
