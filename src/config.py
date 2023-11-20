@@ -1,7 +1,7 @@
 import os
 import logging
 
-logging.basicConfig(filename='log/azure_proxy.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='log/azure_proxy.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 config = {
     "api_key": os.environ.get('AZURE_OPENAI_API_KEY'),
@@ -15,3 +15,6 @@ config = {
     "gpt-35-turbo-16k": "gpt-35-turbo-16k",
     "auth_key": [os.environ.get('AUTH_KEY')],
 }
+
+
+# logging.info(config)

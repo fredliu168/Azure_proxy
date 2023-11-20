@@ -8,6 +8,7 @@ from src.SSEClient import SSEClient
 
 app = Flask(__name__)
 
+
 @app.route("/v1/chat/completions", methods=["POST"])
 def chat_process():
     data = request.get_data()
