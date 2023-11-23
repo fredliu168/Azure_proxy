@@ -8,6 +8,7 @@ services:
       - "8000:8000"
     volumes:
       - ./:/var/azure_openai/workspace/
+    restart: always
     environment:
       AZURE_OPENAI_API_KEY: xxxxxxxxxxxxxxxxx
       AZURE_ENDPOINT: "https://xxxxxxxxxxx.openai.azure.com"
